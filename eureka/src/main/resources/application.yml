@@ -1,9 +1,9 @@
-security:
-  basic:
-    enabled: true
-  user:
-    name: admin
-    password: admin123
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: admin
+ #   password: admin123
 server:
   port: 8761
 eureka:
@@ -11,4 +11,4 @@ eureka:
     register-with-eureka: false #把eureka-client禁用掉
     fetch-registry: false
     service-url:
-      defaultZone: http://admin:admin123@laclhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka
