@@ -1,9 +1,3 @@
-#security:
-#  basic:
-#    enabled: true
-#  user:
-#    name: admin
- #   password: admin123
 server:
   port: 8761
 eureka:
