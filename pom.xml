@@ -4,14 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xiaoyang</groupId>
-    <artifactId>spingcloud-infrastructure</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>eureka</module>
-    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -19,12 +11,22 @@
         <version>2.0.1.RELEASE</version>
     </parent>
 
+    <groupId>com.xiaoyang</groupId>
+    <artifactId>spingcloud-infrastructure</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>eureka</module>
+        <module>auth-service</module>
+    </modules>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.RELEASE</version>
+                <version>Finchley.SR1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
