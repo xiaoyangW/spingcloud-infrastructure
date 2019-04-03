@@ -1,12 +1,11 @@
 package com.xiaoyang.authservice.config;
 
-import com.xiaoyang.authservice.service.UserDetailsServiceImpl;
+import com.xiaoyang.authservice.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -16,6 +15,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
 /**
+ * 服务端点配置 认证管理器，token存储管理，用户信息
  * @author xiaoyang.wen
  * @date 2019/3/29 16:10
  */
@@ -37,6 +37,7 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
 
     @Bean
     public TokenStore tokenStore() {
+        //内存
         return new InMemoryTokenStore();
     }
 
@@ -56,6 +57,9 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
                 .userDetailsService(userDetailsService);
     }
 
+    /**
+     * 服务端安全配置
+     */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
         oauthServer

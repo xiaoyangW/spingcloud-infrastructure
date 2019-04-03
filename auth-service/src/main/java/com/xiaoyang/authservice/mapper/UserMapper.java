@@ -18,6 +18,6 @@ public interface UserMapper {
     User getUserByName(String name);
 
     @Insert("insert into user(name,psw) values (#{name},#{psw})")
-    void addUser(User user);
+    Integer addUser(User user);
 
 }
