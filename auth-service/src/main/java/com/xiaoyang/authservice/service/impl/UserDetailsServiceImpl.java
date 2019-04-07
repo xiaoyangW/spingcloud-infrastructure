@@ -6,6 +6,7 @@ import com.xiaoyang.authservice.service.IUserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -33,6 +34,7 @@ public class UserDetailsServiceImpl implements IUserService {
     @Override
     public Boolean addUser(User user) {
         if (user != null) {
+            user.setPsw(new BCryptPasswordEncoder().encode(user.getPassword()));
             return userMapper.addUser(user) > 0;
         }
         return false;
