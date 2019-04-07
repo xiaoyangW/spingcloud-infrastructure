@@ -1,8 +1,13 @@
+spring:
+  application:
+    name: eureka-server
 server:
   port: 8761
 eureka:
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
   client:
     register-with-eureka: false #把eureka-client禁用掉
     fetch-registry: false
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+
