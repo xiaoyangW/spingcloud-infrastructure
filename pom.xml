@@ -19,6 +19,7 @@
         <module>eureka</module>
         <module>auth-service</module>
         <module>business-service</module>
+        <module>config-service</module>
     </modules>
 
     <dependencyManagement>

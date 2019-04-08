@@ -64,6 +64,6 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
                 //开启/oauth/check_token验证端口认证权限访问
                 .checkTokenAccess("isAuthenticated()")
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .allowFormAuthenticationForClients();//new BCryptPasswordEncoder()
+                .allowFormAuthenticationForClients();
     }
 }
