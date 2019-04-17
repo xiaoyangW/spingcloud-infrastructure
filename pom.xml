@@ -20,6 +20,7 @@
         <module>auth-service</module>
         <module>business-service</module>
         <module>config-service</module>
+        <module>gateway</module>
     </modules>
 
     <dependencyManagement>

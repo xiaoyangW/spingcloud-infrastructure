@@ -1,4 +1,3 @@
-/*
 package com.xiaoyang.authservice;
 
 import org.junit.Test;
@@ -13,8 +12,7 @@ public class AuthServiceApplicationTests {
 
     @Test
     public void contextLoads() {
-        System.out.println(new BCryptPasswordEncoder().encode("1234567"));
+        System.out.println(new BCryptPasswordEncoder().encode("123456"));
     }
 
 }
-*/
