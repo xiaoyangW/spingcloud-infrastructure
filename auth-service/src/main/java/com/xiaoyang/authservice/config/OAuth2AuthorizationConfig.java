@@ -2,19 +2,18 @@ package com.xiaoyang.authservice.config;
 
 import com.xiaoyang.authservice.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
+import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 /**
  * 服务端点配置 认证管理器，token存储管理，用户信息
@@ -29,11 +28,13 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
 
     private final UserDetailsServiceImpl userDetailsService;
 
-    private final TokenStore tokenStore = new InMemoryTokenStore();
+    private TokenStore tokenStore;
 
-    public OAuth2AuthorizationConfig(@Qualifier("authenticationManagerBean") AuthenticationManager authenticationManager, UserDetailsServiceImpl userDetailsService) {
+
+    public OAuth2AuthorizationConfig(@Qualifier("authenticationManagerBean") AuthenticationManager authenticationManager, UserDetailsServiceImpl userDetailsService, RedisConnectionFactory redisConnectionFactory) {
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
+        this.tokenStore = new RedisTokenStore(redisConnectionFactory);
     }
 
 

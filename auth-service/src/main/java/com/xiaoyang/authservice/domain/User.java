@@ -3,10 +3,7 @@ package com.xiaoyang.authservice.domain;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
+import java.io.Serializable;
 
 /**
  * @author WXY
@@ -15,7 +12,7 @@ import java.util.Collection;
 @Setter
 @Getter
 @ToString
-public class User {
+public class User implements Serializable {
 
     private String name;
     private String psw;
