@@ -19,7 +19,9 @@ public class User implements UserDetails {
 
     private String name;
     private String psw;
-
+    private String emil;
+    private String mobile;
+    private String createTime;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

@@ -13,11 +13,20 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface UserMapper {
-
-    @Select("select name,psw from user where name=#{name}")
+    /**
+     * 根据用户名查询用户
+     * @param name 用户name
+     * @return User Info
+     */
+    @Select("select name,psw,emil,mobile,create_time createTime from user where name=#{name}")
     User getUserByName(String name);
 
-    @Insert("insert into user(name,psw) values (#{name},#{psw})")
+    /**
+     * 添加用户
+     * @param user 用户信息
+     * @return Int
+     */
+    @Insert("insert into user(name,psw,emil,mobile,create_time) values (#{name},#{psw},#{emil},#{mobile},#{createTime})")
     Integer addUser(User user);
 
 }
