@@ -32,6 +32,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
+        <!--升级spring-security-oauth2包,解决redis存取token的问题
+        新的spring-boot-starter-data-redis中redisConnection.set方法弃用,
+        新的方法conn.stringCommands().set()
+        -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-security</artifactId>
