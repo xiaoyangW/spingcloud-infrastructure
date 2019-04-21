@@ -1,8 +1,11 @@
 package com.xiaoyang.authservice.controller;
 
+import com.xiaoyang.authservice.domain.BaseUserDetails;
 import com.xiaoyang.authservice.domain.User;
 import com.xiaoyang.authservice.service.IUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
@@ -12,6 +15,7 @@ import java.security.Principal;
  * @author WXY
  * @date 2019/4/3 20:39
  */
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -24,8 +28,9 @@ public class UserController {
     }
 
     @GetMapping("/principal")
-    public Principal getUser(Principal principal){
-        return principal;
+    public User getUser(OAuth2Authentication auth2Authentication){
+        BaseUserDetails userDetails = (BaseUserDetails)auth2Authentication.getPrincipal();
+        return userDetails.getUser();
     }
 
     @PostMapping("/add")
