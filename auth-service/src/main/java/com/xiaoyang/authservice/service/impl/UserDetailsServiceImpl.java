@@ -1,5 +1,6 @@
 package com.xiaoyang.authservice.service.impl;
 
+import com.xiaoyang.authservice.domain.BaseUserDetails;
 import com.xiaoyang.authservice.domain.User;
 import com.xiaoyang.authservice.mapper.UserMapper;
 import com.xiaoyang.authservice.service.IUserService;
@@ -26,18 +27,18 @@ public class UserDetailsServiceImpl implements IUserService {
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        UserDetails userDetails = userMapper.getUserByName(name);
-        log.info("loadUserByUsername:{}",userDetails);
-        if (userDetails == null) {
+        User user = userMapper.getUserByName(name);
+        log.info("loadUserByUsername:{}",user);
+        if (user == null) {
             throw new UsernameNotFoundException(name);
         }
-        return userDetails;
+        return new BaseUserDetails(user);
     }
 
     @Override
     public Boolean addUser(User user) {
         if (user != null) {
-            user.setPsw(new BCryptPasswordEncoder().encode(user.getPassword()));
+            user.setPsw(new BCryptPasswordEncoder().encode(user.getPsw()));
             return userMapper.addUser(user) > 0;
         }
         return false;
