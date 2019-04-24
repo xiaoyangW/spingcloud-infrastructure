@@ -13,9 +13,9 @@ import java.util.Map;
 @FeignClient(name = "auth-service")
 public interface IAuthService {
 
-    @RequestMapping(method = RequestMethod.GET,value = "/user/principal")
+    @RequestMapping(method = RequestMethod.GET,value = "/auth/user/principal")
     Principal getUser();
 
-    @RequestMapping(method = RequestMethod.POST,value = "/user/add")
+    @RequestMapping(method = RequestMethod.POST,value = "/auth/user/add")
     Boolean add(@RequestBody Map<String,String> user);
 }

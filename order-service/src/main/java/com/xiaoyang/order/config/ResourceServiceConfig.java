@@ -12,6 +12,10 @@ import org.springframework.security.oauth2.client.token.grant.client.ClientCrede
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
+
+/**
+ * @author WXY
+ */
 @Configuration
 @EnableResourceServer
 public class ResourceServiceConfig extends ResourceServerConfigurerAdapter {
@@ -32,7 +36,7 @@ public class ResourceServiceConfig extends ResourceServerConfigurerAdapter {
 
     @Bean
     @Order(2)
-    public OAuth2RestTemplate oAuth2RestTemplate(ClientCredentialsResourceDetails clientCredentialsResourceDetails) {
+    public OAuth2RestTemplate auth2RestTemplate(ClientCredentialsResourceDetails clientCredentialsResourceDetails) {
         return new OAuth2RestTemplate(clientCredentialsResourceDetails);
     }
 }

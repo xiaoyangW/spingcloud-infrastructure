@@ -12,6 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 /**
@@ -33,7 +34,7 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
     public OAuth2AuthorizationConfig(@Qualifier("authenticationManagerBean") AuthenticationManager authenticationManager, UserDetailsServiceImpl userDetailsService, RedisConnectionFactory redisConnectionFactory) {
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
-        this.tokenStore = new RedisTokenStore(redisConnectionFactory);
+        this.tokenStore = new InMemoryTokenStore();//new RedisTokenStore(redisConnectionFactory);
     }
 
 

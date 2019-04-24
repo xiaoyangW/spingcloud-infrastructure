@@ -14,8 +14,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableDiscoveryClient
 @EnableFeignClients
 @EnableOAuth2Client
-public class BusinessServiceApplication {
+public class OrderServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BusinessServiceApplication.class, args);
+        SpringApplication.run(OrderServiceApplication.class, args);
     }
 }
