@@ -1,4 +1,4 @@
-package com.xiaoyang.business.config;
+package com.xiaoyang.order.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

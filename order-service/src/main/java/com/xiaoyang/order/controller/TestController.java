@@ -1,6 +1,6 @@
-package com.xiaoyang.business.controller;
+package com.xiaoyang.order.controller;
 
-import com.xiaoyang.business.feign.IAuthService;
+import com.xiaoyang.order.feign.IAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;

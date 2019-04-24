@@ -18,7 +18,7 @@
     <modules>
         <module>eureka</module>
         <module>auth-service</module>
-        <module>business-service</module>
+        <module>order-service</module>
         <module>config-service</module>
         <module>gateway</module>
     </modules>
