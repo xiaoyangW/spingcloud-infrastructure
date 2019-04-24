@@ -21,6 +21,7 @@
         <module>order-service</module>
         <module>config-service</module>
         <module>gateway</module>
+        <module>reserve-service</module>
     </modules>
 
     <dependencyManagement>
