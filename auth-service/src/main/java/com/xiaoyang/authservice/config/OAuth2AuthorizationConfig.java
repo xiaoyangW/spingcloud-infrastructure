@@ -7,6 +7,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
@@ -40,6 +41,7 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         clients.inMemory()
                 .withClient("browser")
                 .authorizedGrantTypes("refresh_token", "password")
@@ -47,7 +49,12 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
                 .and()
                 .withClient("order-service")
                 .authorizedGrantTypes("refresh_token", "client_credentials")
-                .secret("$2a$10$k9XlchI5QxhJgivMqO6YB.qWWcpTbkCM4qxEJeHMMMQwdLwqLm6gG")
+                .secret(passwordEncoder.encode("82cd04e2-72a6-4171-b738-c03f5b41560e"))
+                .scopes("server")
+                .and()
+                .withClient("reserve-service")
+                .authorizedGrantTypes("refresh_token", "client_credentials")
+                .secret(passwordEncoder.encode("11be4f67-dce9-489a-bc0d-83b4a2b1d0c1"))
                 .scopes("server");
     }
 

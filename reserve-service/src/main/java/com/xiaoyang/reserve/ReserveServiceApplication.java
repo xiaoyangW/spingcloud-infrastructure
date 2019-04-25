@@ -1,4 +1,4 @@
-package com.xiaoyang.order;
+package com.xiaoyang.reserve;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,8 +14,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableDiscoveryClient
 @EnableFeignClients
 @EnableOAuth2Client
-public class BusinessServiceApplication {
+public class ReserveServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BusinessServiceApplication.class, args);
+        SpringApplication.run(ReserveServiceApplication.class, args);
     }
 }
