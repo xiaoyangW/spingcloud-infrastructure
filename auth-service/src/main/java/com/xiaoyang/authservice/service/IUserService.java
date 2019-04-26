@@ -10,6 +10,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface IUserService extends UserDetailsService {
 
+    /**
+     * 添加用户
+     * @param user
+     * @return
+     */
     Boolean addUser(User user);
 
 }

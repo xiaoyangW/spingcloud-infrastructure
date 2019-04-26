@@ -1,5 +1,6 @@
 package com.xiaoyang.authservice.config;
 
+import com.xiaoyang.authservice.service.IUserService;
 import com.xiaoyang.authservice.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -23,8 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
 
     @Autowired
-    public WebSecurityConfig(UserDetailsServiceImpl userDetailsService) {
-        this.userDetailsService = userDetailsService;
+    public WebSecurityConfig(IUserService userService) {
+        this.userDetailsService = userService;
     }
 
     /*@Bean
