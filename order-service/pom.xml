@@ -72,7 +72,7 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.xiaoyang</groupId>
+            <groupId>com.xiaoyang.common</groupId>
             <artifactId>common</artifactId>
         </dependency>
     </dependencies>
