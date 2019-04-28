@@ -44,6 +44,11 @@
                 <version>5.1.47</version>
             </dependency>
             <dependency>
+                <groupId>com.xiaoyang.common</groupId>
+                <artifactId>common</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>Finchley.SR2</version>
