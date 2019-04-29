@@ -27,6 +27,11 @@ public class UserController {
         this.userService = userService;
     }
 
+    @RequestMapping(value = "/user-info")
+    public Principal userInfo(Principal principal){
+        return principal;
+    }
+
     @GetMapping("/principal")
     public User getUser(OAuth2Authentication auth2Authentication){
         BaseUserDetails userDetails = (BaseUserDetails)auth2Authentication.getPrincipal();

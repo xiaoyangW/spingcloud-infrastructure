@@ -1,5 +1,6 @@
 package com.xiaoyang.order.feign;
 
+import com.xiaoyang.common.model.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +15,7 @@ import java.util.Map;
 public interface IAuthService {
 
     @RequestMapping(method = RequestMethod.GET,value = "/auth/user/principal")
-    Principal getUser();
+    User getUser();
 
     @RequestMapping(method = RequestMethod.POST,value = "/auth/user/add")
     Boolean add(@RequestBody Map<String,String> user);

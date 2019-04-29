@@ -15,6 +15,7 @@ import java.util.Date;
 public class Order implements Serializable {
 
     Integer id;
+    Integer userId;
     String orderCode;
     Integer commodityId;
     String paymentAmount;

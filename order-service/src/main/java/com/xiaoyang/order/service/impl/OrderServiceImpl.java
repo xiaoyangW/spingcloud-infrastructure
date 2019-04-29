@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.UUID;
+
 
 /**
  * @author WXY
@@ -25,6 +28,8 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public Boolean addOrder(Order order) {
         if (order != null) {
+            order.setOrderCode(UUID.randomUUID().toString());
+            order.setCreateTime(new Date());
             return orderMapper.addOrder(order) > 0;
         }
         return false;
