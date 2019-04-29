@@ -1,12 +1,12 @@
 package com.xiaoyang.authservice.service.impl;
 
+
 import com.xiaoyang.authservice.domain.BaseUserDetails;
 import com.xiaoyang.authservice.domain.User;
 import com.xiaoyang.authservice.mapper.UserMapper;
 import com.xiaoyang.authservice.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class UserDetailsServiceImpl implements IUserService {
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         User user = userMapper.getUserByName(name);
-        log.info("loadUserByUsername:{}",user);
+        log.info("loadUserByUsername:{}", user);
         if (user == null) {
             throw new UsernameNotFoundException(name);
         }

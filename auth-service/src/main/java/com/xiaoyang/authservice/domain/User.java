@@ -14,6 +14,7 @@ import java.io.Serializable;
 @ToString
 public class User implements Serializable {
 
+    private Integer id;
     private String name;
     private String psw;
     private String emil;

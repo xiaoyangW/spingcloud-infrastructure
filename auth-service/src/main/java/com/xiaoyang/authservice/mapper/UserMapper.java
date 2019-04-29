@@ -18,7 +18,7 @@ public interface UserMapper {
      * @param name 用户name
      * @return User Info
      */
-    @Select("select name,psw,emil,mobile,create_time createTime from user where name=#{name}")
+    @Select("select id, name,psw,emil,mobile,create_time createTime from user where name=#{name}")
     User getUserByName(String name);
 
     /**

@@ -12,6 +12,7 @@ public interface IUserService extends UserDetailsService {
 
     /**
      * 添加用户
+     *
      * @param user 用户信息
      * @return boolean true
      */
