@@ -34,7 +34,7 @@ public class OrderController {
     public Object user(OAuth2Authentication principal){
         /*User user = AuthUtil.getOAuth2AuthenticationUser(principal);
         log.info("------user info :{}",user.toString());*/
-        return ((Map)((Map)principal.getUserAuthentication().getDetails()).get("principal")).get("user");
+        return principal;
     }
 
     @PostMapping("/add")
