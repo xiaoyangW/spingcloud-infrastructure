@@ -28,8 +28,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user-info")
-    public Principal userInfo(Principal principal){
-        return principal;
+    public Object userInfo(OAuth2Authentication principal){
+        return principal.getPrincipal();//((BaseUserDetails)principal.getPrincipal()).getUser();
     }
 
     @GetMapping("/principal")

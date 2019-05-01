@@ -6,10 +6,14 @@ import com.xiaoyang.authservice.domain.User;
 import com.xiaoyang.authservice.mapper.UserMapper;
 import com.xiaoyang.authservice.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * @author xiaoyang.wen
@@ -29,6 +33,7 @@ public class UserDetailsServiceImpl implements IUserService {
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         User user = userMapper.getUserByName(name);
         log.info("loadUserByUsername:{}", user);
+        user.setAuthorities(Collections.singletonList(new SimpleGrantedAuthority("admin_user")));
         if (user == null) {
             throw new UsernameNotFoundException(name);
         }

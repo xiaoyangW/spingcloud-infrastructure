@@ -34,14 +34,14 @@ public class OrderController {
     public Object user(OAuth2Authentication principal){
         /*User user = AuthUtil.getOAuth2AuthenticationUser(principal);
         log.info("------user info :{}",user.toString());*/
-        return principal;
+        return principal.getPrincipal();
     }
 
     @PostMapping("/add")
-    public Mono<Boolean> add(@RequestBody Order order, Principal principal) {
+    public Mono<Boolean> add(@RequestBody Order order, OAuth2Authentication principal) {
         log.info("User principal: {}", principal);
-        User user = AuthUtil.getPrincipalUser(principal);
-        order.setUserId(user.getId());
+        Map user = (Map) principal.getPrincipal();
+        order.setUserId((Integer) user.get("id"));
         return Mono.just(orderService.addOrder(order));
     }
 

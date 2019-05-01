@@ -35,7 +35,7 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
     public OAuth2AuthorizationConfig(@Qualifier("authenticationManagerBean") AuthenticationManager authenticationManager, UserDetailsServiceImpl userDetailsService, RedisConnectionFactory redisConnectionFactory) {
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
-        this.tokenStore = new RedisTokenStore(redisConnectionFactory);
+        this.tokenStore = new InMemoryTokenStore();//new RedisTokenStore(redisConnectionFactory);
     }
 
 
