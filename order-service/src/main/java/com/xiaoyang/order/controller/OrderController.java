@@ -1,7 +1,5 @@
 package com.xiaoyang.order.controller;
 
-import com.xiaoyang.common.detail.BaseUserDetails;
-import com.xiaoyang.common.model.User;
 import com.xiaoyang.common.utils.AuthUtil;
 import com.xiaoyang.order.feign.IAuthService;
 import com.xiaoyang.order.model.Order;
@@ -12,7 +10,6 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
-import java.security.Principal;
 import java.util.Map;
 
 /**
@@ -32,9 +29,8 @@ public class OrderController {
     }
     @PostMapping("/user")
     public Object user(OAuth2Authentication principal){
-        /*User user = AuthUtil.getOAuth2AuthenticationUser(principal);
-        log.info("------user info :{}",user.toString());*/
-        return principal.getPrincipal();
+
+        return AuthUtil.getPrincipalUser(principal);
     }
 
     @PostMapping("/add")

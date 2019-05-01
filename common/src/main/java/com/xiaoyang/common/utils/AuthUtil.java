@@ -1,13 +1,12 @@
 package com.xiaoyang.common.utils;
 
-import com.xiaoyang.common.detail.BaseUserDetails;
 import com.xiaoyang.common.model.User;
+import org.springframework.cglib.beans.BeanMap;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
-
 import java.security.Principal;
+import java.util.Map;
 
 /**
- * @author WXY
  */
 public class AuthUtil {
 
@@ -21,20 +20,25 @@ public class AuthUtil {
         if (principal == null) {
             throw new RuntimeException("principal is null");
         }
-        return ((BaseUserDetails) principal).getUser();
+        Map userMap = (Map) ((OAuth2Authentication)principal).getPrincipal();
+        User user = new User();
+        BeanMap beanMap = BeanMap.create(user);
+        beanMap.putAll(userMap);
+        return user;
     }
 
     /**
-     * 根据OAuth2Authentication获取登录用户信息ss
-     *
-     * @param oAuth2Authentication OAuth2Authentication
-     * @return User
+     * 获取登录用户id
+     * @param principal 用户信息
+ * @author WXY
+     * @return user id
      */
-    public static User getOAuth2AuthenticationUser(OAuth2Authentication oAuth2Authentication) {
-        if (oAuth2Authentication == null) {
-            throw new RuntimeException("OAuth2Authentication is null");
+    public static Integer getPrincipalUserId(Principal principal) {
+        if (principal == null) {
+            throw new RuntimeException("principal is null");
         }
-        return ((BaseUserDetails) oAuth2Authentication.getPrincipal()).getUser();
+        Map user = (Map) ((OAuth2Authentication)principal).getPrincipal();
+        return (Integer)user.get("id");
     }
 
 }
