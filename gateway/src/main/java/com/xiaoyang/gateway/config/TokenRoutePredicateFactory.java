@@ -38,7 +38,7 @@ public class TokenRoutePredicateFactory extends AbstractRoutePredicateFactory<To
             HttpHeaders headers = exchange.getRequest().getHeaders();
             List<String> header = headers.get(config.getHeaderName());
             log.info("Token Predicate headers:{}", header);
-            return header.size() > 0;
+            return header != null && header.size() > 0;
         };
     }
 
