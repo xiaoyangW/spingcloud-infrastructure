@@ -9,7 +9,6 @@ import java.time.ZonedDateTime;
 
 /**
  * @author WXY
- *
  */
 
 
@@ -20,16 +19,16 @@ public class RoutesConfiguration {
      */
     /*@Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-        return builder.routes().route(predicateSpec ->
+        return builder.routes().route("order-service", predicateSpec ->
                 predicateSpec.path("/order/**")
                         .and().asyncPredicate(initTokenRoutePredicateFactory().applyAsync(config -> config.setHeaderName("Authorization")))
-                        .uri("lb://order-service").id("order-service")
-
+                        .uri("lb://order-service")
+                .filters()
         ).build();
     }*/
 
     @Bean
-    public TokenRoutePredicateFactory initTokenRoutePredicateFactory(){
+    public TokenRoutePredicateFactory initTokenRoutePredicateFactory() {
         return new TokenRoutePredicateFactory();
     }
 

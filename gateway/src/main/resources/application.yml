@@ -17,3 +17,4 @@
 #                redis-rate-limiter.replenishRate: 1
 #                redis-rate-limiter.burstCapacity: 3
 #                key-resolver: "#{@hostKeyResolver}"
+#            - PrefixPath: /api
