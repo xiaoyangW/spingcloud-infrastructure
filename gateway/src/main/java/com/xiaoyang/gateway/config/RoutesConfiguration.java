@@ -5,8 +5,6 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.time.ZonedDateTime;
-
 /**
  * @author WXY
  */
@@ -23,7 +21,6 @@ public class RoutesConfiguration {
                 predicateSpec.path("/order/**")
                         .and().asyncPredicate(initTokenRoutePredicateFactory().applyAsync(config -> config.setHeaderName("Authorization")))
                         .uri("lb://order-service")
-                .filters()
         ).build();
     }*/
 
