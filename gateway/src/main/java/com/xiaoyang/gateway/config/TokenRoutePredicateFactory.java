@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.function.Predicate;
 
 /**
+ * token断言
+ *
  * @author WXY
  */
 @Slf4j
