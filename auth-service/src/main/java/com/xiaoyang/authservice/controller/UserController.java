@@ -28,18 +28,18 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user-info")
-    public Object userInfo(OAuth2Authentication principal){
+    public Object userInfo(OAuth2Authentication principal) {
         return principal.getPrincipal();//((BaseUserDetails)principal.getPrincipal()).getUser();
     }
 
     @GetMapping("/principal")
-    public User getUser(OAuth2Authentication auth2Authentication){
-        BaseUserDetails userDetails = (BaseUserDetails)auth2Authentication.getPrincipal();
+    public User getUser(OAuth2Authentication auth2Authentication) {
+        BaseUserDetails userDetails = (BaseUserDetails) auth2Authentication.getPrincipal();
         return userDetails.getUser();
     }
 
     @PostMapping("/add")
-    public Mono<Boolean> addUser(@RequestBody User user){
+    public Mono<Boolean> addUser(@RequestBody User user) {
         return Mono.just(userService.addUser(user));
     }
 

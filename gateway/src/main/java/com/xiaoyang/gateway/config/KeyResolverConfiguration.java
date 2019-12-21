@@ -7,6 +7,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * 初始化限流的key
+ *
  * @author WXY
  */
 @Component

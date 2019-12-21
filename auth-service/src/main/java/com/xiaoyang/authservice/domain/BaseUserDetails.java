@@ -40,6 +40,7 @@ public class BaseUserDetails implements UserDetails {
 
     /**
      * 用户是否过期
+     *
      * @return Boolean
      */
     @Override
@@ -49,6 +50,7 @@ public class BaseUserDetails implements UserDetails {
 
     /**
      * 用户是否锁定
+     *
      * @return boolean
      */
     @Override
@@ -58,6 +60,7 @@ public class BaseUserDetails implements UserDetails {
 
     /**
      * 证书未过期
+     *
      * @return boolean
      */
     @Override

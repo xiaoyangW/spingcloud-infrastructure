@@ -3,6 +3,7 @@ package com.xiaoyang.order.model;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.Date;
 

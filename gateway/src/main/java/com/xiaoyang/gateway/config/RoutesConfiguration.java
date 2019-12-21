@@ -23,7 +23,6 @@ public class RoutesConfiguration {
                         .uri("lb://order-service")
         ).build();
     }*/
-
     @Bean
     public TokenRoutePredicateFactory initTokenRoutePredicateFactory() {
         return new TokenRoutePredicateFactory();

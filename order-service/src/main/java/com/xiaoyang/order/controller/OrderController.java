@@ -22,13 +22,15 @@ public class OrderController {
 
     private final IOrderService orderService;
     private final IAuthService authService;
+
     @Autowired
     public OrderController(IOrderService orderService, IAuthService authService) {
         this.orderService = orderService;
         this.authService = authService;
     }
+
     @PostMapping("/user")
-    public Object user(OAuth2Authentication principal){
+    public Object user(OAuth2Authentication principal) {
 
         return AuthUtil.getPrincipalUser(principal);
     }
