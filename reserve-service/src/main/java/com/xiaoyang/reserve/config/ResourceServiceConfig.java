@@ -1,4 +1,4 @@
-package com.xiaoyang.order.config;
+package com.xiaoyang.reserve.config;
 
 import feign.RequestInterceptor;
 import org.springframework.boot.context.properties.ConfigurationProperties;

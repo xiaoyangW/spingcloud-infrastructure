@@ -31,7 +31,6 @@ public class OrderController {
 
     @PostMapping("/user")
     public Object user(OAuth2Authentication principal) {
-
         return AuthUtil.getPrincipalUser(principal);
     }
 
