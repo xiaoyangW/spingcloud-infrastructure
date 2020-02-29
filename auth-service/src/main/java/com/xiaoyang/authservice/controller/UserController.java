@@ -9,8 +9,6 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
-import java.security.Principal;
-
 /**
  * @author WXY
  * @date 2019/4/3 20:39
