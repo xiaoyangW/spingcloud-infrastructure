@@ -29,9 +29,10 @@ public class OrderController {
         this.authService = authService;
     }
 
-    @PostMapping("/user")
+    @PostMapping("/test")
     public Object user(OAuth2Authentication principal) {
-        return AuthUtil.getPrincipalUser(principal);
+        AuthUtil.getPrincipalUser(principal);
+        return authService.test();
     }
 
     @PostMapping("/add")

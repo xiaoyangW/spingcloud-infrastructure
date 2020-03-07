@@ -15,8 +15,10 @@ import java.util.Map;
 public interface IAuthService {
 
     @RequestMapping(method = RequestMethod.GET, value = "/auth/user/principal")
-    User getUser();
+    Map<String,Object> getUser();
 
     @RequestMapping(method = RequestMethod.POST, value = "/auth/user/add")
     Boolean add(@RequestBody Map<String, String> user);
+    @RequestMapping(method = RequestMethod.GET, value = "/auth/user/test")
+    String test();
 }
