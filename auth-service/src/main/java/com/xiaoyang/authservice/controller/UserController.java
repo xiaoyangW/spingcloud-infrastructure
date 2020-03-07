@@ -1,8 +1,8 @@
 package com.xiaoyang.authservice.controller;
 
 import com.xiaoyang.authservice.domain.BaseUserDetails;
-import com.xiaoyang.authservice.domain.User;
 import com.xiaoyang.authservice.service.IUserService;
+import com.xiaoyang.common.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;

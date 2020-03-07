@@ -2,9 +2,9 @@ package com.xiaoyang.authservice.service.impl;
 
 
 import com.xiaoyang.authservice.domain.BaseUserDetails;
-import com.xiaoyang.authservice.domain.User;
 import com.xiaoyang.authservice.mapper.UserMapper;
 import com.xiaoyang.authservice.service.IUserService;
+import com.xiaoyang.common.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

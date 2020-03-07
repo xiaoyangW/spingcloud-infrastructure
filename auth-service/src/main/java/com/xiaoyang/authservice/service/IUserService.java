@@ -1,6 +1,6 @@
 package com.xiaoyang.authservice.service;
 
-import com.xiaoyang.authservice.domain.User;
+import com.xiaoyang.common.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**

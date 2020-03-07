@@ -1,6 +1,6 @@
 package com.xiaoyang.authservice.mapper;
 
-import com.xiaoyang.authservice.domain.User;
+import com.xiaoyang.common.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
