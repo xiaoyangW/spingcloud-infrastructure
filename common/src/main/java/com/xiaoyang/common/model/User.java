@@ -3,8 +3,10 @@ package com.xiaoyang.common.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 /**
  * @author WXY
@@ -21,5 +23,5 @@ public class User implements Serializable {
     private String emil;
     private String mobile;
     private String createTime;
-
+    private Collection<? extends GrantedAuthority> authorities;
 }
