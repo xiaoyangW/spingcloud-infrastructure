@@ -41,4 +41,9 @@ public class UserController {
         return Mono.just(userService.addUser(user));
     }
 
+    @GetMapping("/test")
+    public Mono<String> test(){
+        return Mono.just("auth feign test ");
+    }
+
 }
