@@ -1,11 +1,14 @@
 package com.xiaoyang.order.controller;
 
+import com.xiaoyang.common.model.User;
 import com.xiaoyang.common.utils.AuthUtil;
 import com.xiaoyang.order.feign.IAuthService;
 import com.xiaoyang.order.model.Order;
 import com.xiaoyang.order.service.IOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
@@ -30,8 +33,10 @@ public class OrderController {
     }
 
     @PostMapping("/test")
-    public Object user(OAuth2Authentication principal) {
-        AuthUtil.getPrincipalUser(principal);
+    public Object user() {
+        OAuth2Authentication authentication = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
+        User principalUser = AuthUtil.getPrincipalUser(authentication);
+        log.info(" request user:{}",principalUser);
         return authService.test();
     }
 

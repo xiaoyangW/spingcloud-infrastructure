@@ -1,6 +1,7 @@
 package com.xiaoyang.reserve.controller;
 
 import com.xiaoyang.reserve.feign.OrderService;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,12 +22,12 @@ public class ReserveController {
     }
 
     @GetMapping("/test")
-    public Mono<String> test(){
-        return Mono.just("reserve test");
+    public Mono<Object> test(){
+        return Mono.just(orderService.test());
     }
     @GetMapping("/user")
     public Mono<Object> user(){
-        return Mono.just(orderService.user());
+        return Mono.just("");
     }
 
 }
